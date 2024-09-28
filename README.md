@@ -57,6 +57,8 @@ Hello World test page 1 illustrates one of the pitfalls of using react and nostr
 
 7. Going to change name of repo, maybe to nostr-react-dashboard-template
 
+8. read / write from individual relays
+
 ## Quick Start
 
 - Clone the repo: `git clone https://github.com/PrettyGoodFreedomTech/grapevine-brainstorm.git`

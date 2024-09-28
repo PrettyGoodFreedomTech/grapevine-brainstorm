@@ -12,6 +12,19 @@ const Dashboard = () => {
       </center>
       <br />
       <br />
+      <CContainer>
+        <p>
+          This template makes use of ndk and nostr-hooks libraries for basic nostr functionality.
+        </p>
+        <p>
+          The dashboard / admin layout comes from CoreUI free react admin template, of which this is
+          a fork.
+        </p>
+        <p>
+          For a demo of basic nostr-hooks functionality, follow the "Hello World" link in the
+          drop-down menu under the user avatar (you'll need to be logged in first).
+        </p>
+      </CContainer>
       <center>
         <h4>Apps</h4>
       </center>
