@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useMemo } from 'react'
 import { useProfile } from 'nostr-hooks'
 
-const pubkey = 'e5272de914bd301755c439b88e6959a43c9d2664831f093c51e9c799a16a102f'
+// const pubkey = 'e5272de914bd301755c439b88e6959a43c9d2664831f093c51e9c799a16a102f'
 
 const TestPageBody = () => {
+  const pubkey = useMemo(() => "e5272de914bd301755c439b88e6959a43c9d2664831f093c51e9c799a16a102f", [])
   const { profile } = useProfile({ pubkey })
 
   console.log('rerender TestPageBody, Test Page 3')

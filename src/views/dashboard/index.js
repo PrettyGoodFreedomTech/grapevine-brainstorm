@@ -1,5 +1,5 @@
 import React from 'react'
-import { CContainer, CNavLink, CRow } from '@coreui/react'
+import { CButton, CContainer, CNavLink, CRow } from '@coreui/react'
 import { CCard, CCardBody, CCardHeader, CCardText, CCardTitle, CCol } from '@coreui/react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -7,22 +7,33 @@ const Dashboard = () => {
   return (
     <>
       <center>
-        <h3>The Pretty Good Freedom Tech NRD Template </h3>
-        <p>(NRD: nostr + react + dashboard)</p>
+        <h3>Nostr-React-Dashboard Template </h3>
       </center>
       <br />
       <br />
       <CContainer>
         <p>
-          This template makes use of ndk and nostr-hooks libraries for basic nostr functionality.
+          This template makes use of the{' '}
+          <a target="_blank" href="https://github.com/ostyjs/nostr-hooks" rel="noreferrer">
+            nostr-hooks
+          </a>{' '}
+          library for basic nostr functionality.
         </p>
         <p>
-          The dashboard / admin layout comes from CoreUI free react admin template, of which this is
-          a fork.
+          The dashboard / admin layout comes from{' '}
+          <a
+            target="_blank"
+            href="https://github.com/coreui/coreui-free-react-admin-template"
+            rel="noreferrer"
+          >
+            CoreUI Free React.js Admin Template
+          </a>
+          , of which this is a fork.
         </p>
         <p>
           For a demo of basic nostr-hooks functionality, follow the "Hello World" link in the
           drop-down menu under the user avatar (you'll need to be logged in first).
+          <CButton href="#/helloWorld">Demo</CButton>
         </p>
       </CContainer>
       <center>

@@ -24,7 +24,7 @@ import navigationApp2 from 'src/nav/_navApp2'
 import navigationApp3 from 'src/nav/_navApp3'
 
 // const iconSrc = 'src/assets/brand/brainstorm010_white.svg'
-const iconSrc = 'src/assets/brand/PGFT-NRD-ICON.png'
+const iconSrc = 'src/assets/brand/brainstorm010_white.svg'
 
 function getNavigation(activeApp, signedIn, developmentMode) {
   switch (activeApp) {

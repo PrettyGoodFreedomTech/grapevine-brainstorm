@@ -3,7 +3,9 @@ the Pretty Good Freedom Technology NRD Template
 NRD: nostr + react + dashboard
 -----
 
-The is a free template for anyone who wants to make a nostr app in react using an admin / dashboard - style UI. It relies on the open source [nostr-hooks](https://github.com/ostyjs/nostr-hooks) by osty, as well as ndk and nostr-tools.
+The is a free template for anyone who wants to make a nostr app in react using a dashboard (admin) - style UI. It relies on the open source [nostr-hooks](https://github.com/ostyjs/nostr-hooks) by osty, as well as ndk and nostr-tools.
+
+
 
 ## How this template was created
 
@@ -25,8 +27,8 @@ npm install nostr-hooks@2.8.4
 
 - added `src/helpers/nip19.js`
 - added `src/helpers/relays.js`
-- added `src/helpers/ndk.js` (see below)
-- replaced `login.js`entirely with nostr login
+- added `src/helpers/ndk.js` with the function `asyncFetchProfile` (see below)
+- enabled nostr login
 - added `src/const` folder
 - Persistence of login: currently using either `useAutoLogin` or `(reL)(l)oginFromLocalStorage` in `App.js`, without which `activeUser` is null 
 - profile page will download user information when ?npub or ?pubkey is included in the url
@@ -55,9 +57,7 @@ Hello World test page 1 illustrates one of the pitfalls of using react and nostr
 
 6. Have not decided whether to store logged-in user data at the point of login for a better UX, i.e. to prevent avatar image from flickering whenever you change pages. 
 
-7. Going to change name of repo, maybe to nostr-react-dashboard-template - changed
-
-8. read / write from individual relays
+7. read / write from individual relays
 
 ## Quick Start
 

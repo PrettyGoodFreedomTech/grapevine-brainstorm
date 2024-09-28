@@ -166,5 +166,5 @@ length of events with each rerender.
 */
 
 // export default SubscribeToEvents_infiniteRerenderingHell // does not work
-// export default SubscribeToEvents_memoization // works
-export default SubscribeToEvents_parentChild // works
+export default SubscribeToEvents_memoization // works
+// export default SubscribeToEvents_parentChild // works
