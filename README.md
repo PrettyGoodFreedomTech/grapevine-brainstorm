@@ -55,7 +55,7 @@ Hello World test page 1 illustrates one of the pitfalls of using react and nostr
 
 6. Have not decided whether to store logged-in user data at the point of login for a better UX, i.e. to prevent avatar image from flickering whenever you change pages. 
 
-7. Going to change name of repo, maybe to nostr-react-dashboard-template
+7. Going to change name of repo, maybe to nostr-react-dashboard-template - changed
 
 8. read / write from individual relays
 
