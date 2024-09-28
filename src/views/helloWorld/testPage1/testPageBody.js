@@ -37,7 +37,7 @@ const SubscribeToEvents_infiniteRerenderingHell = () => {
   return (
     <>
       <center>
-        <h3>useSubscribe</h3>
+        <h3>nostr-hooks: useSubscribe</h3>
       </center>
       <div>
         <p>number of events: {events.length}</p>

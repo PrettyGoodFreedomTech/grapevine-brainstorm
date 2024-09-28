@@ -20,7 +20,7 @@ const TestPageBody = () => {
   return (
     <>
       <center>
-        <h3>nostr-hooks: useNewEvent</h3>
+        <h3>nostr-hooks: useNewEvent, useSigner</h3>
       </center>
       <div>
         <input type="text" value={content} onChange={(e) => setContent(e.target.value)} />

@@ -33,13 +33,16 @@ const Profile = () => {
         obj.npub = internalNpub
         const oProfile = await asyncFetchProfile(ndk, obj)
         setProfile(oProfile)
+        return true
       }
       if (internaPubkey) {
         const obj = {}
         obj.pubkey = internaPubkey
         const oProfile = await asyncFetchProfile(ndk, obj)
         setProfile(oProfile)
+        return true
       }
+      return false
     }
     updateProfile()
   }, [])
@@ -51,6 +54,10 @@ const Profile = () => {
       <center>
         <h3>Profile</h3>
       </center>
+      <p>
+        include ?npub=(npub) or ?pubkey=(pubkey) to the above url to look up data using the useNdk
+        function of nostr-hooks. If both are present, the provided npub will be used.
+      </p>
       <div>
         <p>providedNpub: {providedNpub}</p>
         <p>providedPubkey: {providedPubkey}</p>
