@@ -1,16 +1,30 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useNewEvent, useSigner } from 'nostr-hooks'
 
 const TestPageBody = () => {
+  const [content, setContent] = useState('')
+  const { signer } = useSigner()
+
+  const { createNewEvent } = useNewEvent()
+
+  const handlePublish = () => {
+    const event = createNewEvent()
+    event.content = content
+    event.kind = 1
+
+    signer.sign(event)
+
+    console.log('event: ' + JSON.stringify(event, null, 4))
+    event.publish()
+  }
   return (
     <>
       <center>
-        <h3>Test Page Body</h3>
+        <h3>nostr-hooks: useNewEvent</h3>
       </center>
       <div>
-        <p>
-          Loren ipsum
-        </p>
+        <input type="text" value={content} onChange={(e) => setContent(e.target.value)} />
+        <button onClick={() => handlePublish()}>Publish Note</button>
       </div>
     </>
   )

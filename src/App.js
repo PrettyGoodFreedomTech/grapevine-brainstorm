@@ -5,17 +5,29 @@ import { useSelector } from 'react-redux'
 import { CSpinner, useColorModes } from '@coreui/react'
 import './scss/style.scss'
 
+import { useNostrHooks, useLogin, useAutoLogin } from 'nostr-hooks'
+import NDK from '@nostr-dev-kit/ndk'
+
 // Containers
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
 const Login = React.lazy(() => import('./views/login/Login'))
 
+const customNDK = new NDK({
+  /* ... */
+});
+
 const App = () => {
+  useNostrHooks(customNDK)
+  const { loginFromLocalStorage } = useLogin()
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
   const storedTheme = useSelector((state) => state.theme)
 
+  // useAutoLogin and loginFromLocalStorage seem to do the same thing (? ...)
+  useAutoLogin()
   useEffect(() => {
+    // loginFromLocalStorage({})
     const urlParams = new URLSearchParams(window.location.href.split('?')[1])
     const theme = urlParams.get('theme') && urlParams.get('theme').match(/^[A-Za-z0-9\s]+/)[0]
     if (theme) {

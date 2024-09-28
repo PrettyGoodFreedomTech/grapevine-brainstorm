@@ -4,11 +4,10 @@ const About = () => {
   return (
     <>
       <center>
-        <h3>About the PGFT NRD Template</h3>
+        <h3>About This Profile</h3>
       </center>
       <div>
-        <p>PGFT: Pretty Good Freedom Tech</p>
-        <p>NRD: nostr + react + dashboard</p>
+        <p>Lorem ipsum</p>
       </div>
     </>
   )

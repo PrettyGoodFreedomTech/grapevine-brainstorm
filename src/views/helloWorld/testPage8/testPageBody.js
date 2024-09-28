@@ -9,7 +9,7 @@ const TestPageBody = () => {
       </center>
       <div>
         <p>
-          Loren ipsum
+          Lorem ipsum
         </p>
       </div>
     </>

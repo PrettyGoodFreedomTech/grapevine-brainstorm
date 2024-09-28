@@ -10,7 +10,7 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'About Brainstorm',
+    name: 'About PGFT NRD',
     to: '/about',
     icon: <CIcon icon={cilInfo} customClassName="nav-icon" />,
   },

@@ -12,37 +12,41 @@ const _nav = [
   },
   {
     component: CNavTitle,
-    name: 'Test Pages',
+    name: 'nostr-hooks',
   },
   {
     component: CNavItem,
-    name: 'Test Page 1',
+    name: '1: Subscribe to Events',
     to: '/helloWorld/testPage1',
     icon: <CIcon icon={cilClipboard} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Test Page 2',
+    name: '2: Active User Profile',
     to: '/helloWorld/testPage2',
     icon: <CIcon icon={cilClipboard} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Test Page 3',
+    name: '3: Fetch profile',
     to: '/helloWorld/testPage3',
     icon: <CIcon icon={cilClipboard} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Test Page 4',
+    name: '4: NDK Instance',
     to: '/helloWorld/testPage4',
     icon: <CIcon icon={cilClipboard} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Test Page 5',
+    name: '5: Publish New Event',
     to: '/helloWorld/testPage5',
     icon: <CIcon icon={cilClipboard} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavTitle,
+    name: 'unused',
   },
   {
     component: CNavItem,

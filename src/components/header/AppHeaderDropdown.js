@@ -1,23 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   CAvatar,
-  CBadge,
+  CButton,
   CDropdown,
-  CDropdownDivider,
   CDropdownHeader,
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
 } from '@coreui/react'
 import {
-  cilBell,
-  cilCreditCard,
-  cilCommentSquare,
-  cilEnvelopeOpen,
-  cilFile,
-  cilLockLocked,
-  cilSettings,
-  cilTask,
   cilUser,
   cilHome,
   cibWikipedia,
@@ -29,13 +20,63 @@ import {
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 
-import avatar8 from './../../assets/images/avatars/8.jpg'
+import { useActiveUser, useLogin, useNdk } from 'nostr-hooks'
+
+import { noProfilePicUrl } from 'src/const'
+import { useNavigate } from 'react-router-dom'
+
+import { asyncFetchProfile } from 'src/helpers/ndk'
 
 const AppHeaderDropdown = () => {
+  const { activeUser } = useActiveUser()
+  if (!activeUser) {
+    return (
+      <>
+        <CButton href="#/login" color="primary">
+          Login
+        </CButton>
+      </>
+    )
+  }
+  return <ActiveHeaderDropdownLoggedIn activeUser={activeUser} />
+}
+
+const Avatar = ({}) => {
+  const { ndk } = useNdk()
+  const [profilePicUrl, setProfilePicUrl] = useState(noProfilePicUrl)
+
+  const { activeUser } = useActiveUser()
+
+  useEffect(() => {
+    const updateProfilePic = async () => {
+      const obj = {}
+      obj.pubkey = activeUser?.pubkey
+      const oProfile = await asyncFetchProfile(ndk, obj)
+      setProfilePicUrl(oProfile?.image)
+    }
+    updateProfilePic()
+  }, [activeUser])
+
+  console.log('rerender Avatar')
+
+  return <CAvatar style={{ backgroundColor: 'grey' }} src={profilePicUrl} size="md" />
+}
+
+const ActiveHeaderDropdownLoggedIn = ({ activeUser }) => {
+  const { logout } = useLogin()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
+  console.log('rerender ActiveHeaderDropdownLoggedIn')
+
+  const myProfileRoute="#/profile?pubkey="+activeUser?.pubkey
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0 pe-0" caret={false}>
-        <CAvatar src={avatar8} size="md" />
+        <Avatar />
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">
@@ -73,16 +114,16 @@ const AppHeaderDropdown = () => {
           App 3
         </CDropdownItem>
         <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">Account</CDropdownHeader>
-        <CDropdownItem href="#/profile">
+        <CDropdownItem href={myProfileRoute}>
           <CIcon icon={cilUser} className="me-2" />
           My Profile
         </CDropdownItem>
         <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">Settings</CDropdownHeader>
-        <CDropdownItem href="#/login">
+        <CDropdownItem onClick={() => handleLogout()}>
           <CIcon icon={cilArrowThickFromLeft} className="me-2" />
-          Login
+          Logout
         </CDropdownItem>
-        <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">Brainstorm</CDropdownHeader>
+        <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">PGFT NRD</CDropdownHeader>
         <CDropdownItem href="#/about">
           <CIcon icon={cilInfo} className="me-2" />
           About

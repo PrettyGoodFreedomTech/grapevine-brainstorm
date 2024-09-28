@@ -7,7 +7,8 @@ const Dashboard = () => {
   return (
     <>
       <center>
-        <h3>Pretty Good Apps: BrainSToRm</h3>
+        <h3>The Pretty Good Freedom Tech NRD Template </h3>
+        <p>(NRD: nostr + react + dashboard)</p>
       </center>
       <br />
       <br />
