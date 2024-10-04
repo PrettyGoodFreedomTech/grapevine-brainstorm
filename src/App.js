@@ -20,6 +20,7 @@ const customNDK = new NDK({
 
 const App = () => {
   useNostrHooks(customNDK)
+  console.log('RENDERING TOP LEVEL APP COMPONENT')
   const { loginFromLocalStorage } = useLogin()
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
   const storedTheme = useSelector((state) => state.theme)
